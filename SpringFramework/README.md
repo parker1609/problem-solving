@@ -17,14 +17,14 @@
 
 ```
 ├── Parent_Project
-├── build
-│   └── ...
-├── Child_Project_1
-│   └── build
-│       ├── ...
-├── Child_Project_@
-│   └── build
-│       ├── ...
+│   ├── Child_Project_1
+│   │    └── build
+│   │        └──  ...
+│   └── Child_Project_2
+│        └── build
+│            └──  ...
+└── build
+    └── ...
 ```
 
 ### 해결방법
