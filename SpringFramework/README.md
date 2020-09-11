@@ -7,6 +7,35 @@
 - [Spring 환경에서 sleuth, zipkin를 사용할 때 컨트롤러 Mock 유닛 테스트하는 방법](#spring-환경에서-sleuth-zipkin를-사용할-때-컨트롤러-mock-유닛-테스트하는-방법)
 
 
+## 실제 데이터베이스에 적용되지 않는 테스트하기
+### 상황
+실제 데이터베이스와 연동하는 통합 테스트에서 데이터를 수정하는 `INSERT`, `UPDATE`, `DELETE` 등을 테스트하고 싶은 경우, 실제 데이터베이스에 적용되지 않도록 하고 싶었다.
+
+그리고 한 테스트 클래스에서 여러 테스트 메서드가 동작하는데, 그 중 하나의 메서드가 데이터를 수정할 때 다른 메서드에 영향을 미칠 수도 있다.
+
+### 해결방법
+해결방법은 매우 간단하다. 위 상황을 해결하고 싶은 테스트 클래스에 `@Transactional` 어노테이션을 추가해준다. `@Transactional` 어노테이션은 스프링 프레임워크에서 제공해주는 것으로 `@Test` 어노테이션과 함께 사용하면 해당 **메서드가 끝날 때 자동으로 롤백을 수행한다.**
+
+주의할 점은 테스트 클래스 위에 `@Transactional`이 있어야 한다는 점이다. 테스트 내부에서 사용하는 메서드에 `@Transactional`이 선언되어있는지는 상관없다.
+
+#### Reference
+- <http://credemol.blogspot.com/2011/01/spring-junit-transaction.html>
+- <https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html>
+
+만약 테스트 메서드에서 트랜잭션이 동작중이고, 해당 트랜잭션이 롤백을 하는지 알고 싶다면 다음과 같은 `assert` 문을 사용한다. 이를 메서드 처음에 선언해두면 만약 실수로 `@Transactional`을 선언해두지 않으면 `assert` 문에서 에러가 발생하므로 그 아래의 데이터베이스의 데이터를 변경하는 쿼리가 동작하는 것을 막을 수 있다.
+
+```java
+// 트랜잭션이 동작하고 있는지 확인
+assertTrue(TestTransaction.isActive());
+
+// 해당 트랜잭션의 롤백이 활성화되어 있는지 확인
+assertTrue(TestTransaction.isFlaggedForRollback());
+```
+
+#### Reference
+- <https://www.baeldung.com/spring-test-programmatic-transactions>
+
+
 ## Mybatis를 사용하는 멀티 모듈 환경에서 Mapper XML을 찾지 못하는 경우
 ### 환경
 - Spring Boot
