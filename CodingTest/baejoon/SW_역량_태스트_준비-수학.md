@@ -80,8 +80,12 @@ void Eratos(int n)
 }
 ```
 
-시간복잡도는 O(NlogNlogN) 이라고 한다. (https://www.acmicpc.net/board/view/1663)
+시간복잡도는 O(NloglogN) 이라고 한다. (https://www.acmicpc.net/board/view/1663)
 
 참고: <https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4>
 
-위 에라토스테네시의 체를 이용하면 시간복잡도는 O(N + MlogMlogM)이 된다.
+위 에라토스테네스의 체를 이용하면 시간복잡도는 O(N + MloglogM)이 된다.
+
+
+## [골드바흐의 추측](https://www.acmicpc.net/problem/6588)
+미리 소수를 찾기 위해 에라토스테네스의 체를 사용하고, 테스트케이스마다 두 숫자를 찾을 때 두 수의 차이가 가장 큰 경우를 찾아야하므로 하나의 반복문에서 양 끝을 검사하도록 해야한다.
