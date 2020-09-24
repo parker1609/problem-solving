@@ -10,7 +10,7 @@
 
 ## 문제 카테고리
 ### 백준 문제집
-- [code.plus SW 역량 테스트 준비-수학](https://github.com/CODEMCD/problem-solving/blob/master/CodingTest/baejoon/SW_%EC%97%AD%EB%9F%89_%ED%83%9C%EC%8A%A4%ED%8A%B8_%EC%A4%80%EB%B9%84-%EC%88%98%ED%95%99.md)
+- [code.plus SW 역량 테스트 준비 문제 모음](https://github.com/CODEMCD/problem-solving/blob/master/CodingTest/baejoon/SW_%EC%97%AD%EB%9F%89_%ED%83%9C%EC%8A%A4%ED%8A%B8_%EC%A4%80%EB%B9%84-%EC%88%98%ED%95%99.md)
 
 ### DP
 - [[Baejoon]동전 2](https://github.com/CODEMCD/problem-solving/blob/master/CodingTest/Baejoon/2294_%EB%8F%99%EC%A0%842.md)
