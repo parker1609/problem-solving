@@ -114,3 +114,6 @@ void Eratos(int n)
 <https://rimkongs.tistory.com/m/212?category=813345>
 
 위에 따르면 `next_permutation`은 시간복잡도 O(N)으로 구현가능하다.
+
+### [이전 순열](https://www.acmicpc.net/problem/10973), [모든 순열](https://www.acmicpc.net/problem/10974)
+이전 순열은 C++에서 제공하는 `prev_permutation()` 사용, 모든 순열은 재귀 또는 `next_permutation`, `prev_permutation` 중 하나를 사용할 수 있다.
